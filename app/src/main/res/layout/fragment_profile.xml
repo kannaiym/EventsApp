@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/turquoise">
+
+            <ImageView
+                android:id="@+id/ivItem_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/img"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginHorizontal="110dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/ivItem_image"
+                android:layout_toRightOf="@+id/ivItem_image"
+                android:fontFamily="@font/rubik_bold"
+                android:text="Elliot Thompson"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_marginLeft="116dp"
+                android:layout_marginTop="57dp"
+                android:layout_marginRight="12dp"
+                android:layout_toEndOf="@+id/ivItem_image"
+                android:layout_toRightOf="@+id/ivItem_image"
+                android:text="ID:elliotThompson"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/item_detail"
+                app:layout_constraintTop_toBottomOf="@id/item_detail"
+                android:text="О себе:"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/date_of_birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/about"
+                app:layout_constraintTop_toBottomOf="@id/about"
+                android:text="Дата рождения: 04.06.02"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/date_of_birth"
+                app:layout_constraintTop_toBottomOf="@id/date_of_birth"
+                android:text="Пол: Жен"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/ivItem_image"
+                app:layout_constraintTop_toBottomOf="@id/gender"
+                android:text="Контакты:"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/contacts_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="elliot.thompson@gmail.com"
+                app:layout_constraintStart_toStartOf="@id/contacts"
+                app:layout_constraintTop_toBottomOf="@id/contacts"
+                app:layout_constraintVertical_bias="0.222" />
+
+            <TextView
+                android:id="@+id/contacts_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/contacts_mail"
+                app:layout_constraintTop_toBottomOf="@id/contacts_mail"
+                android:text="+996 702 019 636"
+                android:layout_marginTop="4dp"
+                android:paddingBottom="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/famous_works"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Знаменитые работы"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:fontFamily="@font/rubik_medium"
+        app:layout_constraintTop_toBottomOf="@id/card_view"
+        app:layout_constraintStart_toStartOf="@+id/card_view"
+        android:layout_marginTop="48dp"/>
+
+    <TextView
+        android:id="@+id/based_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:text="Базировано на популярности мероприятий"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:fontFamily="@font/rubik_light"
+        app:layout_constraintTop_toBottomOf="@id/famous_works"
+        app:layout_constraintStart_toStartOf="@+id/famous_works"
+        android:layout_marginTop="4dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_own_events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/based_on"
+        android:orientation="horizontal"
+        android:splitMotionEvents="false"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

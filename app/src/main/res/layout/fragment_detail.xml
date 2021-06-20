@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivItem_detail"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@drawable/img"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_of_detail_event"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/rubik_bold"
+        android:text="Мастер-класс по бачате"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/ivItem_detail"
+        app:layout_constraintTop_toBottomOf="@+id/ivItem_detail" />
+
+    <TextView
+        android:id="@+id/number_of_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="133"
+        android:textColor="@color/turquoise"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/name_of_detail_event"
+        app:layout_constraintTop_toBottomOf="@+id/ivItem_detail" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ic_like"
+        app:layout_constraintStart_toEndOf="@+id/number_of_likes"
+        app:layout_constraintTop_toBottomOf="@+id/ivItem_detail"
+        app:layout_goneMarginTop="28dp"/>
+
+    <TextView
+        android:id="@+id/description_of_event"
+        android:layout_width="228dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_light"
+        android:text="Московская школа танцев «Crazy Salsa» приглашает вас записаться на обучающий мастер-класс по бачате. Танец стремительно набирает популярность и давно уже завладел сердцами жителей всей Латинской Америки."
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_of_detail_event" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Дата"
+        android:textColor="@color/black"
+        android:background="@color/turquoise"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/description_of_event"
+        app:layout_constraintTop_toBottomOf="@+id/number_of_likes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
