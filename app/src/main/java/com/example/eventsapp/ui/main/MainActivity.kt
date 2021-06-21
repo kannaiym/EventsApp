@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.eventsapp.R
 import com.example.eventsapp.utils.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,18 @@ class MainActivity : AppCompatActivity() {
             containerId = R.id.navView,
             intent = intent
         )
+    }
+
+    private fun setupTabLayout() {
+        binding.ViewPager.adapter = adapter
+        adapter.update(getDataForPager())
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos->
+            tab.text = adapter.getCurrentItem(pos).title
+        }.attach()
+    }
+
+    private fun getDataForPager(): Any {
+
     }
 }
 
