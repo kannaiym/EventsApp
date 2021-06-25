@@ -1,27 +1,49 @@
 package com.example.eventsapp.ui.profile
 
-import android.os.Bundle
-import android.view.View
-import com.example.eventsapp.R
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.eventsapp.data.base.BaseFragment
 import com.example.eventsapp.data.model.getCourses
 import com.example.eventsapp.databinding.FragmentProfileBinding
-import com.example.eventsapp.utils.viewBinding
 
-class ProfileFragment: BaseFragment() {
-    override fun resID() = R.layout.fragment_profile
-    private val binding by viewBinding(FragmentProfileBinding::bind)
+class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>(
+    ProfileViewModel::class
+) {
+
     private val eventAdapter by lazy {
-        PersonalEventsAdapter()
+        PersonalEventsAdapter {
+            navigateToProductDetails()
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupViews() {
         setupRecyclerView()
+    }
+
+    override fun subscribeToLiveData() {
+        viewModel.userData.observe(viewLifecycleOwner, Observer {
+            eventAdapter.submitList(getCourses())
+        })
+    }
+
+    override fun attachBinding(
+        list: MutableList<FragmentProfileBinding>,
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToRoot: Boolean
+    ) {
+        list.add(FragmentProfileBinding.inflate(layoutInflater, container, attachToRoot))
     }
 
     private fun setupRecyclerView() {
         binding.rvOwnEvents.adapter = eventAdapter
-        eventAdapter.submitList(getCourses())
     }
+
+    private fun navigateToProductDetails() {
+        val destination = ProfileFragmentDirections.actionProfileFragmentToDetailFragment()
+        findNavController().navigate(destination)
+    }
+
 }

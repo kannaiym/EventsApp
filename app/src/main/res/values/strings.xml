@@ -3,4 +3,16 @@
     <string name="search_name">search</string>
     <string name="list_name">list</string>
     <string name="profile_name">profile</string>
+    <string name="event">Актуальные мероприятия</string>
+    <string name="registration">Registration</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="skip">skip</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="question">Already Registered?</string>
+    <string name="register">Register</string>
 </resources>
